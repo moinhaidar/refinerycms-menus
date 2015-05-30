@@ -3,7 +3,7 @@ module Refinery
     class Menu < Refinery::Core::BaseModel  
       self.table_name = "refinery_menus"
       
-      has_many :links, :class_name => "::Refinery::Menus::MenuLink", :foreign_key => :refinery_menu_id, :dependent => :destroy, :order => "lft ASC"
+      has_many :links, -> { order('lft ASC') }, :class_name => "::Refinery::Menus::MenuLink", :foreign_key => :refinery_menu_id, :dependent => :destroy
       
       validates :title, :presence => true, :uniqueness => true
       validates :permatitle, :presence => true, :uniqueness => true
