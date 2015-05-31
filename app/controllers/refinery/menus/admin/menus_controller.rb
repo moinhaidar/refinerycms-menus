@@ -4,7 +4,6 @@ module Refinery
       class MenusController < ::Refinery::AdminController
         
         crudify :'refinery/menus/menu', 
-                :xhr_paging => true, 
                 :sortable => false,
                 :include => [:links],
                 :redirect_to_url => "refinery.menus_admin_menus_path"
